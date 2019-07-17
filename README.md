@@ -4,16 +4,64 @@ Converts mqtt data received from the GoodWeUSBLogger to mqtt understood by Domot
 Subscribes to the mqtt messages submitted by the goodwe usb logger (https://github.com/sircuri/GoodWeUSBLogger) and maps these to mqtt messages for Domoticz.
 
 ## TODO ##
-To be added
+- add support for 3 phase inverters
+
 
 ## Python version
 This converter can be used on either python 2 or pyton 3. Use whatever version you prefer or have available.
 
 ## Required python modules
-To be added
+- configparser
+- logging
+- sys
+- paho-mqtt
+- simplejson
+- time
+- os
+- json
+
+To be verfied/completed
 
 ## Configuration
 Install the _goodwe2domoticz.conf_ in _/etc_. It shall look like:
+```
+[converter]
+#loglevel = DEBUG
+logfile = /var/log/goodwe
+inverters = 13000DSN162W0060
+reportinginterval = 1800
+
+[mqtt]
+# server = domoticz.home.fazant.net
+#port = 1883
+username = goodwe
+password = xxxxxxxxxxxx
+clientid = goodwe-converter
+
+[goodwe]
+topic = goodwe
+
+[domoticz]
+topic = domoticz/in
+
+[13000DSN162W0060]
+online = 96
+power_daytotal = 104
+power_grand_total = 105
+errorMessage = 97
+mains_frequency = 102
+total_hours = 103
+mains_current = 95
+input1_current = 93
+input2_current = 94
+current_power = 99
+temperature = 100
+mains_voltage = 92
+input1_voltage = 90
+input2_voltage = 91
+```
+
+
 
 TBA
 
