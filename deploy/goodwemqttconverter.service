@@ -1,0 +1,16 @@
+[Unit]
+Description=Goodwe USB Logger
+After=basic.target
+
+[Service]
+Type=simple
+User=goodwe
+Group=goodwe
+ExecStart=/opt/goodwemqtt2domo/GoodWeMQTTToDomo.py
+Restart=always
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+
